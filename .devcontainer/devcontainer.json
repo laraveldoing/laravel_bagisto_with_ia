@@ -1,0 +1,20 @@
+{
+  "name": "Node.js + pnpm + OpenCode",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  
+  "containerEnv": {
+    "PNPM_HOME": "/home/vscode/.local/share/pnpm",
+    "PATH": "/home/vscode/.local/share/pnpm:${containerEnv:PATH}"
+  },
+
+  "postCreateCommand": "mkdir -p $PNPM_HOME && corepack enable && corepack prepare pnpm@latest --activate && pnpm add -g opencode",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint"
+      ]
+    }
+  }
+}
