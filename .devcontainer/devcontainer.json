@@ -7,7 +7,7 @@
     "PATH": "/home/vscode/.local/share/pnpm:${containerEnv:PATH}"
   },
 
-  "postCreateCommand": "mkdir -p $PNPM_HOME && corepack enable && corepack prepare pnpm@latest --activate && pnpm add -g opencode-ai",
+  "postCreateCommand": "mkdir -p $PNPM_HOME && corepack enable && corepack prepare pnpm@latest --activate && pnpm install -g opencode-ai",
 
   "customizations": {
     "vscode": {
