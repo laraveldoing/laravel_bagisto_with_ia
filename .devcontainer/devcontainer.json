@@ -1,0 +1,15 @@
+{
+  "name": "laravel-bagisto-devcontainer",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/var/www/html",
+  "remoteUser": "root",
+  "forwardPorts": [80],
+  "extensions": [
+    "bmewburn.vscode-intelephense",
+    "amiralizadeh9480.laravel-extra-intellisense",
+    "shufo.vscode-blade-formatter",
+    "ms-vscode.live-preview"
+  ],
+  "postCreateCommand": "cp .env.example .env && sed -i 's/^DB_HOST=.*/DB_HOST=db/' .env && sed -i 's/^DB_CONNECTION=.*/DB_CONNECTION=mysql/' .env && composer install --no-interaction --no-progress && pnpm install --prefer-offline && php artisan key:generate --no-interaction && php artisan migrate --seed --no-interaction && php artisan storage:link --no-interaction && pnpm run build && composer require laravel/boost --dev --no-interaction && php artisan optimize:clear --no-interaction"
+}
